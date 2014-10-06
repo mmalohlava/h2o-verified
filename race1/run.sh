@@ -4,6 +4,7 @@ FIX_SHA="3969cd2"
 TEST_SHA="eef4822"
 TEST="src/test/java/water/TestKeySnapshotLong.java"
 TESTCLASS="water.TestKeySnapshotLong"
+PATCH_FILE="race1/patches/p1.patch"
 NODES=2
 
 ROOT_DIR="$( cd ../; pwd )"
@@ -19,6 +20,8 @@ $Q $BIN_DIR/co.sh "${FIX_SHA}^"
 ( 
  cd  "$LOCAL_REPO"
  $Q git checkout "$TEST_SHA" -- "$TEST"
+ echo "Patching the test and increasing clouding timeout..."
+ $Q patch "$TEST" "$ROOT_DIR/$PATCH_FILE"
 )
 # run test
 $Q $BIN_DIR/runjunit.sh "$TESTCLASS" 2

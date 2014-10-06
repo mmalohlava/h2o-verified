@@ -1,0 +1,11 @@
+--- y.java	2014-10-05 22:13:14.000000000 -0700
++++ x.java	2014-10-05 22:13:59.000000000 -0700
+@@ -10,7 +10,7 @@
+ import water.util.Utils;
+ 
+ public class TestKeySnapshotLong extends TestUtil {
+-  @BeforeClass public static void stall() { stall_till_cloudsize(3); }
++  @BeforeClass public static void stall() { stall_till_cloudsize(3, 60000); }
+ 
+   /** Test for PUB-895 simulating Exec2 scenario.
+    * <p>The scenario runs on 3JVMs and generates in single thread
